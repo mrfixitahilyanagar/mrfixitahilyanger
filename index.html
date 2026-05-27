@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mr Fixit Mobile Shop</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Mobile shop manager</p>
+          <h1>Mr Fixit</h1>
+          <p class="tagline">New phones, used phones, covers, repairs, and customer data in one place.</p>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="emailBtn" type="button" aria-label="Email data" title="Email data">
+            <span aria-hidden="true">@</span>
+          </button>
+          <button class="icon-button" id="backupBtn" type="button" aria-label="Download backup" title="Download backup">
+            <span aria-hidden="true">DL</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-panel">
+          <div>
+            <p class="section-kicker">Today</p>
+            <h2 id="todayCount">0 open repair jobs</h2>
+            <p id="todayValue">Inventory value: Rs 0</p>
+          </div>
+          <div class="quick-stats" aria-label="Shop stats">
+            <div>
+              <strong id="phoneCount">0</strong>
+              <span>Phones</span>
+            </div>
+            <div>
+              <strong id="coverCount">0</strong>
+              <span>Covers</span>
+            </div>
+            <div>
+              <strong id="repairCount">0</strong>
+              <span>Repairs</span>
+            </div>
+          </div>
+        </section>
+
+        <nav class="tabs" aria-label="Data sections">
+          <button class="tab active" data-tab="phones" type="button">Phones</button>
+          <button class="tab" data-tab="covers" type="button">Covers</button>
+          <button class="tab" data-tab="repairs" type="button">Repairs</button>
+          <button class="tab" data-tab="customers" type="button">Customers</button>
+        </nav>
+
+        <section class="workspace">
+          <div class="toolbar">
+            <label class="search-wrap">
+              <span>Search</span>
+              <input id="searchInput" type="search" placeholder="Search model, customer, phone...">
+            </label>
+            <button class="primary-button" id="addBtn" type="button">Add item</button>
+          </div>
+
+          <div id="list" class="list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="entryDialog">
+      <form method="dialog" id="entryForm">
+        <div class="dialog-head">
+          <div>
+            <p class="section-kicker" id="dialogKicker">New record</p>
+            <h2 id="dialogTitle">Add item</h2>
+          </div>
+          <button class="icon-button ghost" id="closeDialogBtn" type="button" aria-label="Close" title="Close">x</button>
+        </div>
+        <div id="formFields" class="form-grid"></div>
+        <menu class="dialog-actions">
+          <button class="danger-button" id="deleteBtn" type="button">Delete</button>
+          <button class="secondary-button" id="cancelBtn" type="button">Cancel</button>
+          <button class="primary-button" id="saveBtn" value="default" type="submit">Save</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <input id="importInput" type="file" accept="application/json" hidden>
+    <button class="import-fab" id="importBtn" type="button">Import backup</button>
+
+    <script src="app.js"></script>
+  </body>
+</html>
